@@ -21,11 +21,19 @@ Route::get('/', function () {
 Route::get('/mypage', 'MyPageController@mypage');
 
 Route::get('/post', 'PostController@index')->name('post.index');
+Route::get('/post/create', 'PostController@create')->name('post.create');
+Route::post('/post', 'PostController@store')->name('post.store');
+Route::get('/post/{post}', 'PostController@show')->name('post.show');
+
+Route::get('/post/{post}/edit', 'PostController@edit')->name('post.edit');
+Route::patch('/post/{post}', 'PostController@update')->name('post.update');
+
+
 Route::get('/main', 'MainController@index')->name('main.index');
 Route::get('/contacts', 'ContactController@index')->name('contact.index');
 Route::get('/about', 'AboutController@index')->name('about.index');
 
-Route::get('/post/create', 'PostController@create');
+
 Route::get('/post/update', 'PostController@update');
 Route::get('/post/delete', 'PostController@delete');
 

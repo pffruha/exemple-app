@@ -6,20 +6,36 @@
     @vite(['resources/js/app.js'])
     <title>Document</title>
 </head>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+  
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ route('main.index') }}">Main</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('post.index') }}">Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('about.index') }}">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('contact.index') }}">Contacts</a>
+        </li>
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 <body>
-<div class="container">
-<div class="row">
-    <nav>
-        <ul>
-            <li><a href="{{route('main.index')}}">main</a></li>
-            <li><a href="{{route('contact.index')}}">contacts</a></li>
-            <li><a href="{{route('post.index')}}">posts</a></li>
-            <li><a href="{{route('about.index')}}">about</a></li>
-        </ul>
-    </nav>
-</div>
+
+  
     @yield('content')
-</div>  
-<button type="button" class="btn btn-primary">Primary</button> 
+
 </body>
+<a href="{{route('post.index')}}" class="btn btn-success">Back</a>
 </html>

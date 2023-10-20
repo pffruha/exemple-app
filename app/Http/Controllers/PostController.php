@@ -9,50 +9,50 @@ class PostController extends Controller
 {
     public function index() { 
         $posts=Post::all();
-        return view('posts', compact('posts'));       
+        return view('post.index', compact('posts'));       
 
         
     }
 
     public function create() {
-        // $postArr=[
-        //     [
-        //        'title' => 'title for add',
-        //        'content' => 'content for add',
-        //        'image' => 'image for add',
-        //        'likes' => 20,
-        //        'is_published' => 1,
-        //     ],
-        //     // [
-        //     //     'title' => 'another title for add',
-        //     //     'content' => 'another content for add',
-        //     //     'image' => 'another image for add',
-        //     //     'likes' => 30,
-        //     //     'is_published' => 1,
-        //     //  ],
-        //     ];
-
-            Post::create([
-                'title' => '3another title for add',
-                'content' => '3another content for add',
-                'image' => '3another image for add',
-                'likes' => 50,
-                'is_published' => 1,
-            ]);
+        return view('post.create');
     }
 
-    public function update() {
-        $post=POST::find(4);
+    public function store() {
+        $data=request()->all();
         
-        $post->update([
-            'title' => 'updated',
-            'content' => 'updated',
-            'image' => 'updated',
-            'likes' => 40,
-            'is_published' => 0,
-        ]);
+        Post::create($data);
 
+        return redirect()->route('post.index');
     }
+
+    public function show(POST $post) {
+        // $post=POST::findOrfail($id);
+        return view('post.show', compact('post'));
+    }
+
+    public function edit(POST $post) {
+        // $post=POST::findOrfail($id);
+        // return view('post.show', compact('post'));
+        return view('post.edit', compact('post'));
+    }
+
+    public function update(POST $post) {
+        // $post=POST::findOrfail($id);
+        // return view('post.show', compact('post'));
+
+        // return view('post.update', compact('post'));
+        $data=request()->all();
+        // $data=request()->validate([
+        //     'title' => 'string',
+        //     'content' => 'string',
+        //     'image' => 'string'
+        // ]);
+        $post->update($data);
+        return redirect()->route('post.index');
+    }
+
+
 
     public function delete() {
         $post=POST::find(3);
