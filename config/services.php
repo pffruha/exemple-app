@@ -31,4 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'github' => [
+        'client_id' => 'pffruh@yandex.ru',
+        'client_secret' => 'lOnFsxW4fQvEMBHl7L6FI6RuphnWukKGTKuFbJ6qnT8',
+        
+      ], 
+
 ];

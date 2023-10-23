@@ -52,12 +52,13 @@ class PostController extends Controller
         return redirect()->route('post.index');
     }
 
-
-
-    public function delete() {
-        $post=POST::find(3);
-        $post->delete();
-        dd('deleted');
-
+    public function destroy(POST $post) {
+        $data=request()->all();
+        $post->delete($data);
+        return redirect()->route('post.index');
     }
+
+
+
+  
 }

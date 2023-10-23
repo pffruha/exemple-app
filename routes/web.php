@@ -28,6 +28,8 @@ Route::get('/post/{post}', 'PostController@show')->name('post.show');
 Route::get('/post/{post}/edit', 'PostController@edit')->name('post.edit');
 Route::patch('/post/{post}', 'PostController@update')->name('post.update');
 
+Route::delete('/post/{post}', 'PostController@destroy')->name('post.delete');
+
 
 Route::get('/main', 'MainController@index')->name('main.index');
 Route::get('/contacts', 'ContactController@index')->name('contact.index');
